@@ -5,8 +5,8 @@ const Custumer = require('../models/customer');
 
 //Creating new data CRUD : Create
 
-router.post('/create',(req,res,next)=>{
-
+router.post('/creates',(req,res,next)=>{
+ console.log("req.body",req.body)
   Custumer.create(req.body,(err,data)=>{
 	  if(err){
 		  res.status(400).json({success:false,err});
@@ -20,6 +20,13 @@ router.post('/create',(req,res,next)=>{
   })
 })
 
+router.post('/create',(req,res)=>{
+	Custumer.create(req.body,(err,doc)=>{
+		res.json(doc)
+	}).catch(err=>{
+		console.log(err)
+	})
+})
 //	reading data (CRUD , R:Read)
 
 router.get('/read',(req,res)=>{

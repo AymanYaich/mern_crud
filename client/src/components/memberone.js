@@ -24,7 +24,7 @@ export default function MemberCard(props) {
 		let changedName = newName;
 
 		axios
-			.put(`http://localhost:8080/custumer/updateName/?name=${previousName}`, { name: changedName })
+			.put(`http://localhost:5000/custumer/updateName/?name=${previousName}`, { name: changedName })
 			.then((data) => {
 				console.log('successefull update', data);
 			})

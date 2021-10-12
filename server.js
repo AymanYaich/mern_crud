@@ -1,10 +1,10 @@
-//const dotenv = require('dotenv');
-//dotenv.config({path:'./config.env'});
+const dotenv = require('dotenv');
+dotenv.config({path:'./config.env'})
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const connectDb = require('./configDB/db')
-const PORT = process.env.PORT ||8080;
+const PORT = process.env.PORT ;
 const custumer = require('./routes/custumer')
 const app = express();
 //cors Middelware

@@ -14,11 +14,11 @@ export default function Add() {
     
    
 	const sendToDB = (event) => {
-		axios.post('http://localhost:8080/custumer/create', { name, age, job }).then((data) => {
-			console.log(data);
-		});
-		event.preventDefault();
-		window.location.reload(false);
+	    const PORT=process.env.PORT;
+		
+			console.log("PORT",PORT)
+			event.preventDefault();
+		//window.location.reload(false);
 	};
 
 	const readDB = (event) => {

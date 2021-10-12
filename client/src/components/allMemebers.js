@@ -7,7 +7,7 @@ export default function AllMember() {
 	const [ members, setMembers ] = useState([]);
 
 	useEffect(() => {
-		axios.get('http://localhost:8080/custumer/read').then((result) => {
+		axios.get(`http://localhost:5000/custumer/read`).then((result) => {
 			setMembers(result.data)
 		}, []);
 	   console.log('members',members)
