@@ -7,6 +7,7 @@ const connectDb = require('./configDB/db')
 const PORT = process.env.PORT ;
 const custumer = require('./routes/custumer')
 const app = express();
+const path = require('path')
 //cors Middelware
 
 app.use(cors())
@@ -24,7 +25,16 @@ connectDb();
 
 app.use('/custumer',custumer)
 
-
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static(path.join(__dirname,"/client/build")))
+  app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,"client","build","index.html"))
+  })
+}else{
+  app.get('/',(req,res)=>{
+    res.send("Api running")
+  })
+}
 
 app.get('/',(req,res)=>res.send(`Hello my new Backend:)`));
 app.listen(PORT,()=> console.log(`You are now listening @ port ${PORT}`))
