@@ -1,0 +1,22 @@
+{
+  "name": "mern_crud",
+  "version": "1.0.0",
+  "description": "MERN CRUD app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AymanYaich/mern_crud.git"
+  },
+  "keywords": [
+    "MERN"
+  ],
+  "author": "AymanYaich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AymanYaich/mern_crud/issues"
+  },
+  "homepage": "https://github.com/AymanYaich/mern_crud#readme"
+}
