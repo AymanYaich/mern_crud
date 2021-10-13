@@ -14,8 +14,8 @@ export default function Add() {
     
    
 	const sendToDB = (event) => {
-	    
-		axios.post("https://obscure-dawn-57110.herokuapp.com/custumer/creates",{name,age,job}).then((data)=>{
+	    baseUrl = process.env.baseURL || "http://localhost:5000"
+		axios.post(`${baseUrl}/custumer/creates`,{name,age,job}).then((data)=>{
 			console.log(data)
 		})
 			
