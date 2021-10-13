@@ -14,7 +14,7 @@ export default function MemberCard(props) {
 
 	const deleteOne = () => {
 		let id=props.element._id
-		axios.delete(`http://0.0.0.0:${PORT}/custumer/deleteOne/?_id=${id}`).then((doc) => {
+		axios.delete(`https://obscure-dawn-57110.herokuapp.com//custumer/deleteOne/?_id=${id}`).then((doc) => {
 			console.log('successefully deleted', doc);
 		});
 		window.location.reload(false);
@@ -24,7 +24,7 @@ export default function MemberCard(props) {
 		let changedName = newName;
 
 		axios
-			.put(`http://0.0.0.0:${PORT}/custumer/updateName/?name=${previousName}`, { name: changedName })
+			.put(`https://obscure-dawn-57110.herokuapp.com/custumer/updateName/?name=${previousName}`, { name: changedName })
 			.then((data) => {
 				console.log('successefull update', data);
 			})
