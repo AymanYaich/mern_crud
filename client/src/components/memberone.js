@@ -14,7 +14,7 @@ export default function MemberCard(props) {
 
 	const deleteOne = () => {
 		let id=props.element._id
-		axios.delete(`http://localhost:8080/custumer/deleteOne/?_id=${id}`).then((doc) => {
+		axios.delete(`http://0.0.0.0:${PORT}/custumer/deleteOne/?_id=${id}`).then((doc) => {
 			console.log('successefully deleted', doc);
 		});
 		window.location.reload(false);
@@ -24,7 +24,7 @@ export default function MemberCard(props) {
 		let changedName = newName;
 
 		axios
-			.put(`http://localhost:5000/custumer/updateName/?name=${previousName}`, { name: changedName })
+			.put(`http://0.0.0.0:${PORT}/custumer/updateName/?name=${previousName}`, { name: changedName })
 			.then((data) => {
 				console.log('successefull update', data);
 			})
