@@ -14,11 +14,13 @@ export default function Add() {
     
    
 	const sendToDB = (event) => {
-	    const PORT=process.env.PORT;
-		
-			console.log("PORT",PORT)
+	    
+		axios.post("http://0.0.0.0:5000/custumer/creates",{name,age,job}).then((data)=>{
+			console.log(data)
+		})
+			
 			event.preventDefault();
-		//window.location.reload(false);
+		window.location.reload(false);
 	};
 
 	const readDB = (event) => {
