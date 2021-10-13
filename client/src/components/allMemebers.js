@@ -7,7 +7,7 @@ export default function AllMember() {
 	const [ members, setMembers ] = useState([]);
 
 	useEffect(() => {
-		axios.get(`https://obscure-dawn-57110.herokuapp.com//custumer/read`).then((result) => {
+		axios.get(`https://obscure-dawn-57110.herokuapp.com/custumer/read`).then((result) => {
 			setMembers(result.data)
 		}, []);
 	   console.log('members',members)
