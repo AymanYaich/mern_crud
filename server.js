@@ -36,5 +36,5 @@ if(process.env.NODE_ENV === "production"){
   })
 }
 
-app.get('/',(req,res)=>res.send(`Hello my new Backend:)`));
+//app.get('/',(req,res)=>res.send(`Hello my new Backend:)`));
 app.listen(PORT,()=> console.log(`You are now listening @ port ${PORT}`))
