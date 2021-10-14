@@ -26,7 +26,7 @@ export default function Add() {
 		})
 		console.log("formData",...formData)
 			event.preventDefault();
-		window.location.reload(false);
+		
 	};
 
 	const readDB = (event) => {

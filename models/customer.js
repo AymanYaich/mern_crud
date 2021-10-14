@@ -15,11 +15,7 @@ const CustomerSchema  = new mongoose.Schema({
         type:String,
         required:true
     },
-    image:{
-        type:String,
-        
-    }
-    
+    image:String
 });
 
 const Customer =  mongoose.model('Customer',CustomerSchema);

@@ -11,7 +11,7 @@ export default function AllMember() {
 			setMembers(result.data)
 		}, []);
 	   console.log('membeeers',members)
-	});
+	},[]);
 
 	return (
 		<div>

@@ -5,15 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 export default function MemberCard(props) {
-
 	const [ show, setShow ] = useState(false);
 	const [ newName, setNewName ] = useState('');
 
-	const handleClose = () => setShow(false);//close the modal
-	const handleShow = () => setShow(true);//open the modal
+	const handleClose = () => setShow(false); //close the modal
+	const handleShow = () => setShow(true); //open the modal
 
 	const deleteOne = () => {
-		let id=props.element._id
+		let id = props.element._id;
 		axios.delete(`http://localhost:5000/custumer/deleteOne/?_id=${id}`).then((doc) => {
 			console.log('successefully deleted', doc);
 		});
@@ -24,7 +23,9 @@ export default function MemberCard(props) {
 		let changedName = newName;
 
 		axios
-			.put(`https://obscure-dawn-57110.herokuapp.com/custumer/updateName/?name=${previousName}`, { name: changedName })
+			.put(`https://obscure-dawn-57110.herokuapp.com/custumer/updateName/?name=${previousName}`, {
+				name: changedName
+			})
 			.then((data) => {
 				console.log('successefull update', data);
 			})
@@ -40,7 +41,8 @@ export default function MemberCard(props) {
 				<Card.Body>
 					<Card.Title>{props.element.age}</Card.Title>
 					<Card.Text>{props.element.job}</Card.Text>
-                    <img src={props.element.image}/>
+					<h1>{props.element.image}</h1>
+					<img src={props.element.image} />
 					<Button variant="primary" onClick={deleteOne}>
 						Delete
 					</Button>
@@ -83,7 +85,6 @@ export default function MemberCard(props) {
 							</Button>
 						</Modal.Footer>
 					</Modal>
-					<h2>{props.element._id}</h2>
 				</Card.Body>
 			</Card>
 		</div>

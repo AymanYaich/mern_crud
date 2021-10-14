@@ -27,29 +27,67 @@ const storage = multer.diskStorage({
 		});
 
 
-  router.post("/add",upload.single("image"),(req,res)=>{
-	  cloudinary.v2.uploader.upload(req.file.path,function(err,result){
-        if(err){
-			res.json(err)
+  
+
+  //
+  router.post("/adds",upload.single("image"),(req,res)=>{
+      
+	cloudinary.v2.uploader.upload(req.file.path,function(err,result){
+	  if(err){
+		  
+		  res.json(err)
+	  }else{
+		   req.body.image=result.secure_url;
+	  }
+	})
+	let sendData={
+	  name:req.body.name,
+	  age:req.body.age,
+	  job:req.body.job,
+	  image:req.body.image
+  }
+	Custumer.create(sendData,(err,data)=>{
+		console.log(sendData)
+	  if(err){
+		  res.status(400).json({success:false,err});
+		  console.log(err)
+	  }else{
+		  res.status(200).json({
+			  success:true,
+			  custumer:data
+		  })
+		  console.log(data)
+	  }
+  })
+})
+
+router.post("/add", upload.single("image"), (req, res) => {
+	cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
+	  if (err) {
+		res.json(err);
+	  }else{
+	  req.body.image = result.secure_url;
+	  // add image's public_id to image object
+	  //req.body.imageId = result.public_id;
+  
+	  Custumer.create({name:req.body.name,
+					 age:req.body.age,
+					 job:req.body.job,
+					 image:req.body.image}, function(err, doc) {
+		if (err) {
+		  res.json(err.message);
+		 
 		}else{
-			req.body.image=result.secure_url;
-			//req.body.imageId = result.public_id
-		
-		}
-	  })
-	  Custumer.create(req.body,(err,data)=>{
-		if(err){
-			res.status(400).json({success:false,err});
-			console.log(err)
-		}else{
-			res.status(200).json({
+			res.json({
 				success:true,
-				custumer:data
+				data:doc
 			})
 		}
-	})
-  })
-
+	  });
+	}
+	});
+  });
+  
 //Creating new data CRUD : Create
 
 router.post('/creates',(req,res,next)=>{
