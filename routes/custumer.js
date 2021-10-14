@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
 
 
   router.post("/add",upload.single('image'),(req,res)=>{
-	  cloudinary.v2.uploader.upload(req.files.path,function(err,result){
+	  cloudinary.v2.uploader.upload(req.file.path,function(err,result){
         if(err){
 			res.json(err)
 		}else{
