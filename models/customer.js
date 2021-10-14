@@ -15,7 +15,7 @@ const CustomerSchema  = new mongoose.Schema({
         type:String,
         required:true
     },
-    image:String,
+    image:String
     //imageId:String
 });
 
