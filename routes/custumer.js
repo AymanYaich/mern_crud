@@ -27,14 +27,14 @@ const storage = multer.diskStorage({
 		});
 
 
-  router.post("/add",upload.single('image'),(req,res)=>{
+  router.post("/add",upload.single("image"),(req,res)=>{
 	  cloudinary.v2.uploader.upload(req.file.path,function(err,result){
         if(err){
 			res.json(err)
 		}else{
 			req.body.image=result.secure_url;
 			//req.body.imageId = result.public_id
-			console.log(req.body)
+		
 		}
 	  })
 	  Custumer.create(req.body,(err,data)=>{
