@@ -19,7 +19,7 @@ const CustomerSchema  = new mongoose.Schema({
         type:String,
         required:true
     }
-    //imageId:String
+    
 });
 
 const Customer =  mongoose.model('Customer',CustomerSchema);
