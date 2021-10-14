@@ -76,7 +76,7 @@ export default function Add() {
 					<Form.Label>Image</Form.Label>
 					<Form.Control
 						type="file"
-						value={image}
+						
 						onChange={(e)=>{setImage(e.target.files[0])}}
 						
 					/>

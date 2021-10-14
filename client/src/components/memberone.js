@@ -40,7 +40,7 @@ export default function MemberCard(props) {
 				<Card.Body>
 					<Card.Title>{props.element.age}</Card.Title>
 					<Card.Text>{props.element.job}</Card.Text>
-
+                    <image src={props.element.image}/>
 					<Button variant="primary" onClick={deleteOne}>
 						Delete
 					</Button>
