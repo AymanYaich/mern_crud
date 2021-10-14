@@ -10,7 +10,7 @@ export default function AllMember() {
 		axios.get(`https://obscure-dawn-57110.herokuapp.com/custumer/read`).then((result) => {
 			setMembers(result.data)
 		}, []);
-	   console.log('members',members)
+	   console.log('membeeers',members)
 	});
 
 	return (

@@ -4,23 +4,29 @@ import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AllMember from './allMemebers'
 import axios from 'axios';
+//import axios from 'axios';
 
 export default function Add() {
 	
 	const [ name, setName ] = useState('');
-	const [ age, setAge ] = useState(0);
+	const [ age, setAge ] = useState();
 	const [ job, setJob ] = useState('');
 	const [showList,setShowList]= useState(false)
+	const [image,setImage]=useState()
     
-   
 	const sendToDB = (event) => {
-	   
-		axios.post(`https://obscure-dawn-57110.herokuapp.com/custumer/creates`,{name,age,job}).then((data)=>{
+		const formData = new FormData();
+		formData.append("name",name);
+		formData.append("age",age);
+		formData.append("job",job);
+       formData.append("image",image)
+        
+	    axios.post(`https://obscure-dawn-57110.herokuapp.com/custumer/add`,formData).then((data)=>{
 			console.log(data)
 		})
-			
+		console.log("formData",...formData)
 			event.preventDefault();
-		window.location.reload(false);
+		//window.location.reload(false);
 	};
 
 	const readDB = (event) => {
@@ -36,7 +42,8 @@ export default function Add() {
     
 	return (
 		<div>
-			<Form>
+			<Form  encType="multipart/form-data" >
+			
 				<Form.Group className="mb-3" controlId="formBasicEmail">
 					<Form.Label>Customer Name</Form.Label>
 					<Form.Control
@@ -46,8 +53,7 @@ export default function Add() {
 						placeholder="Enter your name"
 					/>
 				</Form.Group>
-
-				<Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3" controlId="formBasicEmail">
 					<Form.Label>Age</Form.Label>
 					<Form.Control
 						type="number"
@@ -63,6 +69,16 @@ export default function Add() {
 						value={job}
 						onChange={(e) => setJob(e.target.value)}
 						placeholder="Enter your job"
+					/>
+				</Form.Group>
+				
+				<Form.Group className="mb-3" controlId="formBasicEmail">
+					<Form.Label>Image</Form.Label>
+					<Form.Control
+						type="file"
+						
+						onChange={(e)=>{setImage(e.target.files[0])}}
+						
 					/>
 				</Form.Group>
 

@@ -14,8 +14,9 @@ const CustomerSchema  = new mongoose.Schema({
     job:{
         type:String,
         required:true
-       
-    }
+    },
+    image:String,
+    //imageId:String
 });
 
 const Customer =  mongoose.model('Customer',CustomerSchema);

@@ -14,7 +14,7 @@ export default function MemberCard(props) {
 
 	const deleteOne = () => {
 		let id=props.element._id
-		axios.delete(`https://obscure-dawn-57110.herokuapp.com/custumer/deleteOne/?_id=${id}`).then((doc) => {
+		axios.delete(`http://localhost:5000/custumer/deleteOne/?_id=${id}`).then((doc) => {
 			console.log('successefully deleted', doc);
 		});
 		window.location.reload(false);

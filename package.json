@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-   "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client" 
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -23,11 +23,13 @@
   "homepage": "https://github.com/AymanYaich/mern_crud#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cloudinary": "^1.27.1",
     "concurrently": "^6.3.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.0.0",
+    "multer": "^1.4.3",
     "nodemon": "^2.0.13",
     "path": "^0.12.7"
   }
