@@ -2,34 +2,32 @@ import React from 'react';
 import {useState} from 'react';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import {Form , Button} from 'react-bootstrap';
-import withRouter from 'react-router-dom';
-import registerUser from '../actions/authActions'
+import {withRouter} from 'react-router-dom';
+import {registerUser} from '../actions/authActions'
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
-import axios from 'axios';
 
-export default connect(
-  mapStateToProps,
-  { registerUser }
-)(withRouter(Register));
 
-export default function Register() {
+
+const  Register=(props)=> {
   
   const[fullname,setName]=useState("");
   const[email,setEmail]=useState("");
   const[password,setPassword]=useState("");
   const[retypedPassWord,setRetypedPassword]=useState("");
+ // const[erros,setErrors]= useState({});
+
+
 
 const sendToDB =(event)=>{
+  event.preventDefault();
   if (retypedPassWord===password){
-    axios.post("http://localhost:5000/user/add",{fullname,email,password}).then(addedUser=>{
-      console.log(addedUser)
-    }).catch(err=>{
-      console.log(err)
-    })
+   props.registerUser({fullname,email,password},props.history)
   }else{
     alert("not matched password!!!!")
   }
-  event.preventDefault();
+  
 }
 
 	return (
@@ -73,3 +71,17 @@ const sendToDB =(event)=>{
 		</div>
 	);
 }
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(Register));

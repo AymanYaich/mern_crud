@@ -1,22 +1,26 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { useState } from 'react';
-import axios from 'axios';
+import { useState,useEffect } from 'react';
+import {loginUser} from '../actions/authActions';
+import {connect} from 'react-redux';
+import {PropTypes} from 'prop-types';
+import {withRouter} from 'react-router-dom';
 
-export default function Login() {
 
+
+const  Login=(props)=> {
+    useEffect(()=>{
+        if(props.auth.isAuthenticated){
+			props.history.push("/dashboard")
+		}
+	})
 	const[email,setEmail]=useState("");
 
 	const[password,setPassword]=useState("");
 
 	const sendToVerify = (event)=> {
-		
-		axios.post("http://localhost:5000/user/login",{email,password}).then((data)=>{
-			console.log(data)
-		}).catch(err=>{
-			console.log(err)
-		})
 		event.preventDefault();
+		props.loginUser({email,password})
 	}
 	return (
 		<div>
@@ -49,4 +53,21 @@ export default function Login() {
 			</Form>
 		</div>
 	);
-}
+};
+
+Login.propTypes = {
+	loginUser: PropTypes.func.isRequired,
+	auth: PropTypes.object.isRequired,
+	errors: PropTypes.object.isRequired
+  };
+
+
+const mapStateToProps=state=>({
+	auth:state.auth,
+	error:state.error
+})
+
+export default  connect(
+ mapStateToProps,
+ {loginUser}
+)(withRouter(Login))

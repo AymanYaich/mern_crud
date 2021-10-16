@@ -47,8 +47,8 @@ router.post('/login', (req, res) => {
 
 	User.findOne({ email: req.body.email }, (err, data) => {
 		if (!data) {
-			res.status(200).json({msg:"not founded email"})
-			console.log('email Not founded');
+			res.status(200).json({success:false,error:"not matched password"})
+			
 		} else {
 			bcrypt.compare(req.body.password, data.password, (err, isMatch) => {
 				if (err) {
@@ -58,10 +58,11 @@ router.post('/login', (req, res) => {
 						res.status(401).json({ msg: 'invalid password' });
 						console.log('invalid password');
 					} else {
-						res.status(200).json({ msg: 'matched Passwords' });
+						
                        // console.log('valid password');
                         const payload={
-                            id:data._id,
+							id:data._id,
+							fullname:data.fullname,
                             email:data.email
                         };
                         jwt.sign(payload,secretKey,{
@@ -71,8 +72,11 @@ router.post('/login', (req, res) => {
                           if(err){
                               console.log(err)
                           }else{
-                             
-                              console.log("valid password =>token",token)
+                             res.json({
+								 success:true,
+								 token:token
+							 })
+                             console.log(token)
                           }
                         })
 
