@@ -5,9 +5,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const connectDb = require('./configDB/db')
 const PORT = process.env.PORT ;
-const custumer = require('./routes/custumer')
+const custumer = require('./routes/custumer');
+const user = require('./routes/user')
 const app = express();
-const pathh = require('path')
+const pathh = require('path');
+const passport = require ('passport');
 //cors Middelware
 
 app.use(cors())
@@ -23,7 +25,13 @@ connectDb();
 
 //endpoint configurations
 
-app.use('/custumer',custumer)
+app.use('/custumer',custumer);
+app.use('/user',user);
+
+//Passport middilware
+app.use(passport.initialize());
+//Passport config
+require('./config/passport')(passport)
 
 if(process.env.NODE_ENV === "production"){
   app.use(express.static("client/build"))

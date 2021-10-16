@@ -14,6 +14,8 @@ export default function Navigation() {
 						<Nav.Link href="/">Home</Nav.Link>
 						<Nav.Link href="/add">Add</Nav.Link>
 						<Nav.Link href="/custumers">List</Nav.Link>
+						<Nav.Link href="/register">Register</Nav.Link>
+						<Nav.Link href="/login">Login</Nav.Link>
 					</Nav>
 				</Container>
 			</Navbar>
