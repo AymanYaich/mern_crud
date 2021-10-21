@@ -41,7 +41,7 @@ export default function Add() {
 	 
     
 	return (
-		<div>
+		<div className="register-form">
 			<Form  encType="multipart/form-data" >
 			
 				<Form.Group className="mb-3" controlId="formBasicEmail">
@@ -81,7 +81,10 @@ export default function Add() {
 						
 					/>
 				</Form.Group>
-
+				<div class="mb-3">
+				<label for="formFileSm" class="form-label">Small file input example</label>
+				<input class="form-control form-control-sm" id="formFileSm" type="file"/>
+			  </div>
 				<Button variant="primary" type="submit" onClick={sendToDB}>
 					Submit
 				</Button>

@@ -67,6 +67,7 @@ const sendToDB =(event)=>{
         <Button variant="primary" type="submit" onClick={sendToDB}>
           Submit
         </Button>
+ 
       </Form>
 		</div>
 	);

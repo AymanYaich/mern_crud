@@ -1,0 +1,66 @@
+
+
+.register-form {
+    position: relative;
+    margin-top: 50px;
+    width: 30%;
+    left: 200px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+}
+
+#carousel-images {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    width: 900px;
+
+
+}
+
+#image-carousel {
+    width: 900px;
+    height: 400px;
+
+}
+
+.home {
+    background-color: #eaf6f6;
+    margin-top: 0;
+}
+
+.navbar-links{
+    overflow: hidden;
+    margin-bottom:0;
+}
+.navbar-links a{
+    float: left;
+    font-size: 16px;
+    
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.navbar-links a:hover{
+    background-color: #a9a9a9;
+    
+}
+
+.navbar-links a:focus{
+    background-color: red;
+}
+#toTopButton{
+    position:relative;
+    left:1300px;
+    bottom:120px
+}
+
