@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const connectDb = require('./configDB/db')
 const PORT = process.env.PORT ;
-const custumer = require('./routes/custumer');
+const product = require('./routes/product');
 const user = require('./routes/user')
 const app = express();
 const pathh = require('path');
@@ -25,7 +25,7 @@ connectDb();
 
 //endpoint configurations
 
-app.use('/custumer',custumer);
+app.use('/product',product);
 app.use('/user',user);
 
 //Passport middilware

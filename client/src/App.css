@@ -1,5 +1,3 @@
-
-
 .register-form {
     position: relative;
     margin-top: 50px;
@@ -38,29 +36,57 @@ h6 {
     margin-top: 0;
 }
 
-.navbar-links{
+.navbar-links {
     overflow: hidden;
-    margin-bottom:0;
+    margin-bottom: 0;
 }
-.navbar-links a{
+.ml-auto{
+
+    padding: 0px;
+}
+.navbar-links a {
+   
     float: left;
-    font-size: 16px;
-    
+    font-size: 18px;
     text-align: center;
-    padding: 14px 16px;
+    padding: 16px;
     text-decoration: none;
 }
-.navbar-links a:hover{
+
+.navbar-links a:hover {
     background-color: #a9a9a9;
-    
+
 }
 
-.navbar-links a:focus{
+.navbar-links a:focus {
     background-color: red;
 }
-#toTopButton{
-    position:relative;
-    left:1300px;
-    bottom:120px
+
+#toTopButton {
+    position: relative;
+    left: 1300px;
+    bottom: 120px
 }
 
+.product-form {
+    position: relative;
+    width: 30%;
+    left: 300px;
+
+}
+
+.product-list {
+    margin-top:60px;
+    margin-left:100px;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    grid-gap: 1em;
+
+}
+.materialui-card{
+    transition: 0.2;
+}
+.materialui-card:hover{
+transform:scale(1.1);
+
+}

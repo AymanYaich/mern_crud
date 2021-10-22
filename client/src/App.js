@@ -4,7 +4,8 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import Add from './components/add';
+
+import AddProduct from './components/addProuct'
 import AllMember from './components/allMemebers';
 import Home from './components/home';
 import Navigation from './components/navbar';
@@ -41,7 +42,7 @@ function App() {
 				<Navigation />
 
 				<Route path="/" component={Home} exact />
-				<Route path="/add" component={Add} />
+				<Route path="/add" component={AddProduct} />
 				<Route path="/custumers" component={AllMember} />
 				<Route path="/register" component={Register} />
 				<Route path="/login" component={Login} />

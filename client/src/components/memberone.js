@@ -1,7 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
-import { Card, Button, Modal } from 'react-bootstrap';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
+//import {  Button, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import axios from 'axios';
 
 export default function MemberCard(props) {
@@ -13,7 +21,7 @@ export default function MemberCard(props) {
 
 	const deleteOne = () => {
 		let id = props.element._id;
-		axios.delete(`http://localhost:5000/custumer/deleteOne/?_id=${id}`).then((doc) => {
+		axios.delete(`http://localhost:5000/product/deleteOne/?_id=${id}`).then((doc) => {
 			console.log('successefully deleted', doc);
 		});
 		window.location.reload(false);
@@ -23,7 +31,7 @@ export default function MemberCard(props) {
 		let changedName = newName;
 
 		axios
-			.put(`https://obscure-dawn-57110.herokuapp.com/custumer/updateName/?name=${previousName}`, {
+			.put(`https://obscure-dawn-57110.herokuapp.com/product/updateName/?name=${previousName}`, {
 				name: changedName
 			})
 			.then((data) => {
@@ -36,57 +44,28 @@ export default function MemberCard(props) {
 
 	return (
 		<div>
-			<Card>
-				<Card.Header as="h5">{props.element.name}</Card.Header>
-				<Card.Body>
-					<Card.Title>{props.element.age}</Card.Title>
-					<Card.Text>{props.element.job}</Card.Text>
-					<h1>{props.element.image}</h1>
-					<img src={props.element.image} />
-					<Button variant="primary" onClick={deleteOne}>
-						Delete
-					</Button>
-
-					<Button variant="primary" onClick={handleShow}>
-						Update
-					</Button>
-
-					<Modal show={show} onHide={handleClose}>
-						<Modal.Header closeButton>
-							<Modal.Title>If you want to update name </Modal.Title>
-						</Modal.Header>
-						<Modal.Body>last name {props.element.name}</Modal.Body>
-						<Modal.Body>updated name : </Modal.Body>
-						<div class="input-group mb-3">
-							<input
-								type="text"
-								class="form-control"
-								value={newName}
-								onChange={(e) => {
-									setNewName(e.target.value);
-								}}
-								placeholder="Recipient's username"
-								aria-label="Recipient's username"
-								aria-describedby="basic-addon2"
-							/>
-							<div class="input-group-append">
-								<button class="btn btn-outline-secondary" type="button" onClick={updateName}>
-									Enter
-								</button>
-							</div>
-						</div>
-
-						<Modal.Footer>
-							<Button variant="secondary" onClick={handleClose}>
-								Close
-							</Button>
-							<Button variant="primary" onClick={handleClose}>
-								Save Changes
-							</Button>
-						</Modal.Footer>
-					</Modal>
-				</Card.Body>
-			</Card>
+		<div className="materialui-card">
+		<Card sx={{ maxWidth: 345 }}>
+		<CardMedia
+		  component="img"
+		  height="140"
+		  image={props.element.image}
+		  alt="green iguana"
+		/>
+		<CardContent>
+		  <Typography gutterBottom variant="h5" component="div">
+			{props.element.name}
+		  </Typography>
+		  <Typography variant="body2" color="text.secondary">
+			{props.element.description}
+		  </Typography>
+		</CardContent>
+		<CardActions>
+		  <Button size="small">Share</Button>
+		  <Button size="small">Learn More</Button>
+		</CardActions>
+	  </Card>
 		</div>
+</div>
 	);
 }
