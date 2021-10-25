@@ -4,7 +4,6 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-
 import AddProduct from './components/addProuct'
 import AllMember from './components/allMemebers';
 import Home from './components/home';

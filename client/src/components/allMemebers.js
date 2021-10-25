@@ -10,8 +10,8 @@ export default function AllMember() {
 		axios.get(`http://localhost:5000/product/read`).then((result) => {
 			setMembers(result.data)
 		});
-	   console.log('membeeers',members)
-	});
+	   
+	},[]);
 	
 
 	return (

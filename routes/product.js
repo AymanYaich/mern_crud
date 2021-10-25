@@ -119,4 +119,18 @@ router.put('/updateName', (req, res) => {
 	});
 });
 
+router.put('/updateAll', (req, res) => {
+	const { category , name , price , description } = req.body;
+	const updatedData = { name , price ,description , category}
+	Product.findOneAndUpdate({ _id: req.query._id }, updatedData, (err, result) => {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log(result);
+		}
+	});
+})
+
+
+
 module.exports = router;

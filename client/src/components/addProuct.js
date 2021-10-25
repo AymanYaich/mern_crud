@@ -4,6 +4,7 @@ import axios from 'axios';
 
 
 export default function AddProduct() {
+	
 	const [ name, setName ] = useState('');
 	const [ category, setCategory ] = useState('');
 	const [ price, setPrice ] = useState();
@@ -11,7 +12,7 @@ export default function AddProduct() {
 	const [image,setImage]= useState()
 	const categoryList = [ 'Electronic', 'Clothes', 'Cosmetic' ];
     
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+	
 	useEffect(() => {
 		if (!categoryList.includes(category)) {
 			return setCategory('');
@@ -24,8 +25,8 @@ export default function AddProduct() {
 		formData.append("category",category);
 		formData.append("name",name);
 		formData.append("price",price);
-	   formData.append("description",description)
-	   formData.append("image",image)
+	    formData.append("description",description)
+	    formData.append("image",image)
         
 	    axios.post(`http://localhost:5000/product/add`,formData).then((data)=>{
 			console.log(data)

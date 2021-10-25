@@ -58,8 +58,8 @@ h6 {
 
 }
 
-.navbar-links a:focus {
-    background-color: red;
+.navbar{
+    margin-bottom: 0;
 }
 
 #toTopButton {
@@ -88,5 +88,41 @@ h6 {
 }
 .materialui-card:hover{
 transform:scale(1.1);
+}
+
+.cardb{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.item-button{
+    position: relative;
+    display: inline-block;
+   }
+
+.tooltiptext{
+ visibility: hidden;
+  width: 200px;
+  background-color:grey;
+  color: #fff;
+ 
+  
+  position: absolute;
 
 }
+
+.item-button:hover .tooltiptext{
+    visibility:visible
+}
+
+.dialogue-buttons{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+
+
