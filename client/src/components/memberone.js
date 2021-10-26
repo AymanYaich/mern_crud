@@ -60,27 +60,8 @@ export default function MemberCard(props) {
 	
 	//Method to update all the content of a product including also the update 
 	// of the picture
-	
-   const updateAlll = (event) => {
-	const formData = new FormData();
-	formData.append('name', !(newName === '') ? newName : name)
-	formData.append('price', !(newPrice === 0) ? newPrice : price);
-	formData.append('category',!(newCategory === '') ? newCategory : category)
-	formData.append('description',newDescription);
-	formData.append('image',(imageUpdated === true) ? newImage : image)
-	axios
-		.put(`http://localhost:5000/product/updateAll/?_id=${_id}`, formData)
-		.then((data) => {
-			console.log('successefull updated ', data);
-		})
-		.catch((err) => {
-			console.log('err', err);
-		});
-		
-	   event.preventDefault() ;
-	}
-
 	const updateAll = (event) => {
+	
 		if(imageUpdated){
 			const formData = new FormData();
 			formData.append('name', !(newName === '') ? newName : name)
