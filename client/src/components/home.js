@@ -1,8 +1,7 @@
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'bootstrap';
-import { Tooltip } from 'bootstrap';
+
 export default function Home() {
 
 	const toTop = (event) => {

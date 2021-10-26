@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -28,9 +28,11 @@ export default function MemberCard(props) {
 	const [ newName, setNewName ] = useState('');
 	const [ newPrice, setNewPrice ] = useState(0);
 	const [ newDescription, setNewDescription ] = useState(description);
-	const [ updateMessage, setUpdateMessage ] = useState("");
+	const [ newImage, setNewImage ] = useState('');
+	const [ updateMessage, setUpdateMessage ] = useState('');
+	
 	const [ show, setShow ] = useState(false);
-
+	const [ imageUpdated, setImageUpdated ] = useState(false);
 	// handle opening dialog popup
 	const showEdit = () => {
 		setShow(true);
@@ -39,6 +41,13 @@ export default function MemberCard(props) {
 	const handleClose = () => {
 		setShow(false);
 	};
+	//handle uploading image
+	const uploadImage = (event) => {
+		event.preventDefault();
+		setImageUpdated(true);
+		setNewImage(event.target.files[0]);
+	};
+	
 	// function to delete the item;
 	const deleteOne = (event) => {
 		let id = _id;
@@ -46,37 +55,69 @@ export default function MemberCard(props) {
 			console.log('successefully deleted', doc);
 		});
 		event.preventDefault();
-		window.location.reload(false); //to automatically reload the page.
+		
 	};
+	
+	//Method to update all the content of a product including also the update 
+	// of the picture
+	
+   const updateAlll = (event) => {
+	const formData = new FormData();
+	formData.append('name', !(newName === '') ? newName : name)
+	formData.append('price', !(newPrice === 0) ? newPrice : price);
+	formData.append('category',!(newCategory === '') ? newCategory : category)
+	formData.append('description',newDescription);
+	formData.append('image',(imageUpdated === true) ? newImage : image)
+	axios
+		.put(`http://localhost:5000/product/updateAll/?_id=${_id}`, formData)
+		.then((data) => {
+			console.log('successefull updated ', data);
+		})
+		.catch((err) => {
+			console.log('err', err);
+		});
+		
+	   event.preventDefault() ;
+	}
+
 	const updateAll = (event) => {
-		
-		
-		if (newName===""&&newPrice===0&&newCategory===""){
-			
-		   setUpdateMessage("Nothing to update")
-		   alert ("hhhh")
-		}else {
-
-		let newData = {
-			name: !(newName === '') ? newName : name,
-			price: !(newPrice === 0) ? newPrice : price,
-			description: newDescription,
-			category: !(newCategory === '') ? newCategory : category
-		};
-		let id = _id;
-
-		axios
-			.put(`http://localhost:5000/product/updateAll/?_id=${id}`, newData)
-			.then((data) => {
-				console.log('successefull update', data);
-			})
-			.catch((err) => {
-				console.log('err', err);
-			});
-		event.preventDefault();
-		window.location.reload(false);
+		if(imageUpdated){
+			const formData = new FormData();
+			formData.append('name', !(newName === '') ? newName : name)
+			formData.append('price', !(newPrice === 0) ? newPrice : price);
+			formData.append('category',!(newCategory === '') ? newCategory : category)
+			formData.append('description',newDescription);
+			formData.append('image',(imageUpdated === true) ? newImage : image)
+			axios
+				.put(`http://localhost:5000/product/updateAll/?_id=${_id}`, formData)
+				.then((data) => {
+					console.log('successefull updated ', data);
+				})
+				.catch((err) => {
+					console.log('err', err);
+				});
+		}else{
+			const updatedData={
+				name:!(newName === '') ? newName : name,
+				price: !(newPrice === 0) ? newPrice : price,
+				description:newDescription,
+				category:!(newCategory === '') ? newCategory : category
+			}
+			axios
+				.put(`http://localhost:5000/product/updateNoImg/?_id=${_id}`, updatedData)
+				.then((data) => {
+					console.log('successefull updated ', data);
+				})
+				.catch((err) => {
+					console.log('err', err);
+				});
 		}
-	};
+		
+			
+		   event.preventDefault() ;
+		
+	
+		   }
 
 	return (
 		<div>
@@ -115,7 +156,7 @@ export default function MemberCard(props) {
 							</Tooltip>
 							<Dialog open={show} onClose={handleClose}>
 								<DialogTitle>Here you can change the data of the the product</DialogTitle>
-
+                                <form encType="multipart/form-data">
 								<Box
 									component="form"
 									sx={{
@@ -214,15 +255,16 @@ export default function MemberCard(props) {
 											setNewDescription(e.target.value);
 										}}
 									/>
-									<TextField id="filled-search" type="file" variant="filled" />
+									<TextField id="filled-search" type="file" variant="filled" onChange={uploadImage} />
 								</Box>
 								<DialogActions className="dialogue-buttons">
 									<Button onClick={updateAll}>Update</Button>
 									<Button onClick={handleClose}>Close</Button>
-									<br></br>
 									
+									<br />
 								</DialogActions>
 								<span>{updateMessage}</span>
+								</form>
 							</Dialog>
 						</div>
 					</CardActions>

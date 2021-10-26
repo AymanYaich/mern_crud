@@ -11,6 +11,9 @@ const storage = multer.diskStorage({
 		callback(null, Date.now() + files.originalname);
 	}
 });
+
+//Filter only accepted image types
+//her we used the regEX
 const imageFilter = function(req, files, cb) {
 	// accept image files only
 	if (!files.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
@@ -27,34 +30,7 @@ cloudinary.config({
 });
 
 //
-router.post('/adds', upload.single('image'), (req, res) => {
-	cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
-		if (err) {
-			res.json(err);
-		} else {
-			req.body.image = result.secure_url;
-		}
-	});
-	let sendData = {
-		name: req.body.name,
-		price: req.body.price,
-		description: req.body.description,
-		image: req.body.image
-	};
-	Product.create(sendData, (err, data) => {
-		console.log(sendData);
-		if (err) {
-			res.status(400).json({ success: false, err });
-			console.log(err);
-		} else {
-			res.status(200).json({
-				success: true,
-				Product: data
-			});
-			console.log(data);
-		}
-	});
-});
+;
 
 router.post('/add', upload.single('image'), (req, res) => {
 	cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
@@ -62,7 +38,6 @@ router.post('/add', upload.single('image'), (req, res) => {
 			res.json(err);
 		} else {
 			req.body.image = result.secure_url;
-			// add image's public_id to image object
 			//req.body.imageId = result.public_id;
 
 			Product.create(
@@ -109,28 +84,39 @@ router.delete('/deleteOne', (req, res) => {
 		}
 	});
 });
-router.put('/updateName', (req, res) => {
-	Product.findOneAndUpdate({ name: req.query.name }, { name: req.body.name }, (err, result) => {
+
+
+//upload one photo in order to update the photo
+
+router.put('/updateAll', upload.single('image'), (req, res) => {
+
+	cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
 		if (err) {
 			console.log(err);
 		} else {
-			console.log(result);
+			const image = result.secure_url||"";
+			const {name ,price,description,category}=req.body
+			
+		   Product.findOneAndUpdate({ _id:req.query._id }, {name,price,description,category,image },{useFindAndModify: false}, (err, result) => {
+				if (err) {
+					console.log(err);
+				} else {
+					console.log("res",result);
+				}
+			});
 		}
 	});
 });
 
-router.put('/updateAll', (req, res) => {
-	const { category , name , price , description } = req.body;
-	const updatedData = { name , price ,description , category}
-	Product.findOneAndUpdate({ _id: req.query._id }, updatedData, (err, result) => {
-		if (err) {
-			console.log(err);
-		} else {
-			console.log(result);
+router.put('/updateNoImg',(req,res)=>{
+	const{name,price,description,category}=req.body;
+	Product.findOneAndUpdate({_id:req.query._id},{name,price,description,category},(err,result)=>{
+		if(err){
+			console.log(err)
+		}else{
+			console.log(result)
 		}
-	});
+	})
 })
-
-
 
 module.exports = router;

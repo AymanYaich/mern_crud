@@ -6,7 +6,7 @@ export default function footer() {
 			<footer class="text-center text-lg-start bg-light text-muted">
 				<section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
 					<div className="footer-icons">
-						<a href="" class="me-4 text-reset">
+						<a href="/" class="me-4 text-reset">
 							<i class="fab fa-facebook-f" />
 						</a>
 						<a href="/login" class="me-4 text-reset">
@@ -31,7 +31,7 @@ export default function footer() {
 								</h5>
 								</div>
 								<div className="footer-img-container">
-								<a href="/"><img  className="footer-img" src="./shoptodo.png" /></a>
+								<a href="/"><img  className="footer-img" src="./shoptodo.png" alt=""/></a>
 							</div>
 							</div>
 							<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -42,15 +42,13 @@ export default function footer() {
 									</a>
 								</p>
 								<p>
-									<a href="#!" class="text-reset">
+									<a href="/" class="text-reset">
 										Clothes
 									</a>
 								</p>
+								
 								<p>
-									<a href="#!" class="text-reset" />
-								</p>
-								<p>
-									<a href="#!" class="text-reset">
+									<a href="/" class="text-reset">
 										Cosmetic
 									</a>
 								</p>

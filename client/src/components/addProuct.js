@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 
@@ -13,12 +13,7 @@ export default function AddProduct() {
 	const categoryList = [ 'Electronic', 'Clothes', 'Cosmetic' ];
     
 	
-	useEffect(() => {
-		if (!categoryList.includes(category)) {
-			return setCategory('');
-		}
-	});
-
+	
 	const sendToDb=(event)=>{
 		event.preventDefault();
 		const formData = new FormData();
