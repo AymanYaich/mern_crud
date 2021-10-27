@@ -8,7 +8,7 @@ export default function Navigation() {
 				<Navbar  bg="light" variant="light" >
 					<Container >
 					<Navbar.Brand id="navbar-image" href="/">
-					<img src="/shoptodo.png" width="80" height="40" className="mr auto align-top" alt="React" />
+					<img src="/shopshop.png" width="100" height="90" className="mr auto align-top" alt="React" />
 				</Navbar.Brand>
 						<Nav className="ml-auto ">
 						<div className="navbar-links ">

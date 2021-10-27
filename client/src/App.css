@@ -61,6 +61,8 @@ h6 {
 }
 
 .navbar {
+    padding-top:0px;
+    margin-top:0;
     margin-bottom: 0;
 }
 
@@ -148,4 +150,33 @@ h6 {
     bottom:30px;
     font-family:"Gill Sans Extrabold", sans-serif;
     color:red;
+}
+
+.photo-ecommerce{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+
+}
+
+.about-us{
+    position:relative;
+    top:100px;
+}
+
+.header{
+    margin-bottom:0px;
+    padding-bottom:0;
+}
+.footer-image{
+    width:150;
+    height:150;
+}
+
+#navbar-image{
+    position:absolute;
+    bottom:45px;
+    left:10px;
+
 }

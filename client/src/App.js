@@ -7,6 +7,7 @@ import store from './store';
 import AddProduct from './components/addProuct'
 import AllMember from './components/allMemebers';
 import Home from './components/home';
+//import Header from './components/header';
 import Navigation from './components/navbar';
 import Footer from './components/footer';
 import Register from './components/register';
@@ -37,7 +38,7 @@ function App() {
 	return (
 		<Provider store={store}>
 			<BrowserRouter>
-			
+			  
 				<Navigation />
 
 				<Route path="/" component={Home} exact />

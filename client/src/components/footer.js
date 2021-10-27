@@ -26,12 +26,10 @@ export default function footer() {
 						<div class="row mt-3">
 							<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 							<div className="footer-title-container">
-								<h5 class="text-uppercase fw-bold mb-4">
-									<i class="fas fa-gem me-3" />Shoptodo
-								</h5>
+								
 								</div>
 								<div className="footer-img-container">
-								<a href="/"><img  className="footer-img" src="./shoptodo.png" alt=""/></a>
+								<a href="/"><img  className="footer-img" src="./shopshop.png" alt=""/></a>
 							</div>
 							</div>
 							<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">

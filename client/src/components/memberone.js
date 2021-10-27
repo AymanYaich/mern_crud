@@ -260,4 +260,8 @@ export default function MemberCard(props) {
 			</div>
 		</div>
 	);
+
+
+
+	
 }
