@@ -40,12 +40,14 @@ h6 {
     overflow: hidden;
     margin-bottom: 0;
 }
-.ml-auto{
+
+.ml-auto {
 
     padding: 0px;
 }
+
 .navbar-links a {
-   
+
     float: left;
     font-size: 18px;
     text-align: center;
@@ -58,7 +60,7 @@ h6 {
 
 }
 
-.navbar{
+.navbar {
     margin-bottom: 0;
 }
 
@@ -76,53 +78,74 @@ h6 {
 }
 
 .product-list {
-    margin-top:60px;
-    margin-left:100px;
+    margin-top: 60px;
+    margin-left: 100px;
     display: grid;
     grid-template-columns: repeat(3, 2fr);
     grid-gap: 1em;
 
 }
-.materialui-card{
+
+.materialui-card {
     transition: 0.2;
 }
-.materialui-card:hover{
-transform:scale(1.1);
+
+.materialui-card:hover {
+    transform: scale(1.1);
 }
 
-.cardb{
+.cardb {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 40%;
 }
 
-.item-button{
+.item-button {
     position: relative;
     display: inline-block;
-   }
+}
 
-.tooltiptext{
- visibility: hidden;
-  width: 200px;
-  background-color:grey;
-  color: #fff;
- 
-  
-  position: absolute;
+.tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: grey;
+    color: #fff;
+
+
+    position: absolute;
 
 }
 
-.item-button:hover .tooltiptext{
-    visibility:visible
+.item-button:hover .tooltiptext {
+    visibility: visible
 }
 
-.dialogue-buttons{
+.dialogue-buttons {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 25%;
 }
 
+.image-container {
+    position: relative
+}
 
+.container-text-block {
+    position: relative;
+    top: -30px;
+    color: darkslategrey;
+    background-color: #eaf6f6;
+    text-align: center;
+    vertical-align: center;
+    width: 35%;
+    font-family: "cursive";
+}
 
+.content-card{
+    position:relative;
+    bottom:30px;
+    font-family:"Gill Sans Extrabold", sans-serif;
+    color:red;
+}

@@ -104,13 +104,17 @@ export default function MemberCard(props) {
 		<div>
 			<div className="materialui-card">
 				<Card sx={{ position: 'relative', maxWidth: 345 }}>
-					<CardMedia component="img" height="140" image={image} alt="green iguana" />
-					<CardContent>
-						<Typography gutterBottom variant="h5" component="div">
-							{category}
-						</Typography>
-						<Typography gutterBottom variant="h5" component="div">
-							{name}
+				<div className="image-container">
+					<CardMedia component="img" height="200" image={image} alt="green iguana" />
+					 <div className="container-text-block">
+					     <p>{category}</p>
+					 </div>
+					</div>
+					<div className="content-card">
+					<CardContent >
+						
+						<Typography gutterBottom  component="div">
+							<span style={{color:"grey"}}>{name}</span>
 						</Typography>
 						<Typography variant="body2" color="text.primary">
 							{price} TND
@@ -249,6 +253,7 @@ export default function MemberCard(props) {
 							</Dialog>
 						</div>
 					</CardActions>
+					</div>
 					<div />
 					<div />
 				</Card>
