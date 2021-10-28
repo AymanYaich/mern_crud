@@ -180,3 +180,8 @@ h6 {
     left:10px;
 
 }
+
+#paragraph-positon{
+    position:relative;
+    top:100px;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function Navigation() {
 	return (
@@ -15,7 +16,9 @@ export default function Navigation() {
 							<Nav.Link  style={{width:"80px"}} href="/add">Add</Nav.Link>
 							<Nav.Link  style={{width:"80px"}} href="/custumers">List</Nav.Link>
 							<Nav.Link  style={{width:"80px"}} href="/register">Register</Nav.Link>
-							<Nav.Link  style={{width:"80px"}}href="/login">Login</Nav.Link>
+							<Nav.Link  style={{width:"80px"}}  href="/login"><i class="fas fa-user"></i>
+
+							</Nav.Link>
 							</div>
 						</Nav>
 						

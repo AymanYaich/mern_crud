@@ -1,10 +1,10 @@
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Carousel from 'react-material-ui-carousel'
+import Carousel from 'react-material-ui-carousel';
 
 export default function Home() {
-	const imageSRC=["/parfum.jpg","/computers.jpeg","/clothes.jpeg"]
+	const imageSRC = [ '/parfum.jpg', '/computers.jpeg', '/clothes.jpeg' ];
 	const toTop = (event) => {
 		window.scrollTo(0, 0);
 		event.preventDefault();
@@ -13,6 +13,7 @@ export default function Home() {
 	return (
 		<div class="home">
 			<div className="w3-row w3-padding-64" id="about">
+
 				<div className="w3-col m6 w3-padding-large w3-hide-small">
 					<img
 						src="/ecommerce.svg"
@@ -42,28 +43,60 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
+
 			<div id="carousel-images">
-			<Carousel  id="myCarousel" >
-			{
-				imageSRC.map((src)=>{
-					return(
-						<div>
-						<img src={src} id="image-carousel"
-						alt=""
-						/>
-						</div>
-					)
-				})
-			}
-			</Carousel>
+				<Carousel id="myCarousel">
+					{imageSRC.map((src) => {
+						return (
+							<div>
+								<img src={src} id="image-carousel" alt="" />
+							</div>
+						);
+					})}
+				</Carousel>
 			</div>
 
+			<div className="w3-row w3-padding-64" id="about">
 
 			
+					<div className="about-us">
+						<div className="w3-col m6 w3-padding-large">
 
-			
-			<img className="photo-ecommerce" src="/ecommer2.png" alt="" />
-			
+							<div id="paragraph-positon">
+							<p className="w3-large">
+								
+								<span>
+								<h3><span>	
+								&#10003;</span>More than <span style={{color:"red",fontWeight:"bold", fontStyle:"italic"}}>1000</span>  products</h3>	
+								</span>
+								<span>
+								<h3><span>	
+								&#10003;</span>More than <span style={{color:"red",fontWeight:"bold",fontStyle:"italic"}}>100</span>  exclusive products</h3>	
+								</span>
+								<span>
+								<h3>
+								<span>	
+								&#10003;</span>More than <span style={{color:"red",fontWeight:"bold",fontStyle:"italic"}}>20000</span> custumers</h3>	
+								</span>
+								<h3>
+								<span>	
+								&#10003;</span>More than <span style={{color:"red",fontWeight:"bold",fontStyle:"italic"}}>80</span> cars for delivery</h3>	
+								
+							</p>
+							</div>
+						</div>
+					</div>
+					<div className="w3-col m6 w3-padding-large w3-hide-small">
+					<img  
+					src="/ecommer2.png"
+					 alt=""
+					 className="w3-round w3-image w3-opacity-min"
+					
+						width="600"
+						height="750" />
+					</div>
+				
+			</div>
 			<div id="toTopButton">
 				<button type="button" class="btn btn-dark btn-floating btn-lg" id="btn-back-to-top" onClick={toTop}>
 					<i class="fas fa-arrow-up" />
