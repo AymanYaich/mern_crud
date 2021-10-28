@@ -183,5 +183,33 @@ h6 {
 
 #paragraph-positon{
     position:relative;
-    top:100px;
+    top:0px;
+}
+
+
+
+.testimonial p {
+    color: #fff;
+    line-height: 19px;
+    font-size: 13px;
+    margin-top: 16px
+}
+
+.testimonial h5 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-top: 8px
+}
+
+body {
+    background: black
+}
+
+.col-md-4 {
+    margin-top: 25px
+}
+
+.col-md-4:hover{
+    transform: scale(1.3);
 }

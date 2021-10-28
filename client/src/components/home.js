@@ -25,9 +25,9 @@ export default function Home() {
 				</div>
 				<div className="about-us">
 					<div className="w3-col m6 w3-padding-large">
-						<h1 className="w3-center">About Shoptodo</h1>
-						<h5 className="w3-center">Since 2020</h5>
-						<p className="w3-large">
+						<h1 className="w3-center w3-text-grey">About Shoptodo</h1>
+						<h5 className="w3-center w3-text-grey">Since 2020</h5>
+						<p className="w3-large w3-text-grey">
 							{' '}
 							<span>
 								An e-commerce company based on Sfax Tunisia.Our business consist on online trading for
@@ -63,7 +63,7 @@ export default function Home() {
 						<div className="w3-col m6 w3-padding-large">
 
 							<div id="paragraph-positon">
-							<p className="w3-large">
+							<p className="w3-large w3-text-grey">
 								
 								<span>
 								<h3><span>	
@@ -88,7 +88,7 @@ export default function Home() {
 					</div>
 					<div className="w3-col m6 w3-padding-large w3-hide-small">
 					<img  
-					src="/ecommer2.png"
+					src="/csd.png"
 					 alt=""
 					 className="w3-round w3-image w3-opacity-min"
 					
@@ -97,6 +97,31 @@ export default function Home() {
 					</div>
 				
 			</div>
+
+			<div class="container mt-5">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="testimonial p-3 bg-primary text-center rounded"><img src="https://i.imgur.com/lU2pDQv.png" width="60" alt=""/>
+						<p>100% stisfaid, fast delivery, professional team and welcoming service</p><img class="rounded-circle" src="https://i.imgur.com/4DEiXLa.jpg" alt="" width="70"/>
+						<h5>Mariem Deny</h5>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="testimonial p-3 bg-primary text-center rounded"><img src="https://i.imgur.com/lU2pDQv.png" width="60" alt=""/>
+						<p>Since the first time I bought from shop2do, I said it will be my prefered digital shop</p><img class="rounded-circle" src="https://i.imgur.com/nbO4gwx.jpg" width="70" alt=""/>
+						<h5>Mourad Fhidi</h5>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="testimonial p-3 bg-primary text-center rounded"><img src="https://i.imgur.com/lU2pDQv.png" width="60" alt="" />
+						<p>For me , I didn't find cheaper specially because no fee for delivery </p><img class="rounded-circle" src="https://i.imgur.com/xbWPOrc.jpg" width="70" alt=""/>
+						<h5>Sonia Lemouchi</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+  
+
 			<div id="toTopButton">
 				<button type="button" class="btn btn-dark btn-floating btn-lg" id="btn-back-to-top" onClick={toTop}>
 					<i class="fas fa-arrow-up" />
