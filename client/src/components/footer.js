@@ -35,18 +35,18 @@ export default function footer() {
 							<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 								<h6 class="text-uppercase fw-bold mb-4">Products</h6>
 								<p>
-									<a href="#!" class="text-reset">
+									<a href="/electronic" class="text-reset">
 										Electronics
 									</a>
 								</p>
 								<p>
-									<a href="/" class="text-reset">
+									<a href="/clothes" class="text-reset">
 										Clothes
 									</a>
 								</p>
 								
 								<p>
-									<a href="/" class="text-reset">
+									<a href="/cosmetic" class="text-reset">
 										Cosmetic
 									</a>
 								</p>

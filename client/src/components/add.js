@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AllMember from './allMemebers'
@@ -7,12 +7,16 @@ import axios from 'axios';
 
 
 export default function Add() {
-	
+
 	const [ name, setName ] = useState('');
 	const [ age, setAge ] = useState('');
 	const [job,setJob]= useState(false)
 	const [image,setImage]=useState()
-    const [showList,setShowList]=false
+	const [showList,setShowList]=false
+	useEffect(()=>{
+		console.log("titl")
+	},[])
+    
 	const sendToDB = (event) => {
 		const formData = new FormData();
 		formData.append("name",name);

@@ -14,6 +14,9 @@ import Register from './components/register';
 import Login from './components/login';
 import Dashboard from './components/dashbord';
 import PrivateRoute from './components/privateRoute';
+import Electronic from './components/electronic';
+import Clothes from './components/clothes';
+import Cosmetic from './components/cosmetic';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
@@ -38,14 +41,17 @@ function App() {
 	return (
 		<Provider store={store}>
 			<BrowserRouter>
-			  
+			
 				<Navigation />
 
 				<Route path="/" component={Home} exact />
-				<Route path="/add" component={AddProduct} />
+				<Route path="/add" component={AddProduct}  />
 				<Route path="/custumers" component={AllMember} />
 				<Route path="/register" component={Register} />
 				<Route path="/login" component={Login} />
+				<Route path="/electronic" component={Electronic}/>
+				<Route path="/clothes" component ={Clothes}/>
+				<Route path="/cosmetic" component={Cosmetic}/>
 				<Switch>
 					<PrivateRoute path="/dashboard" component={Dashboard} />
 				</Switch>
