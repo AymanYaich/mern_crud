@@ -11,7 +11,9 @@ export default function Home() {
 	};
 
 	return (
+		
 		<div class="home">
+		
 			<div className="w3-row w3-padding-64" id="about">
 
 				<div className="w3-col m6 w3-padding-large w3-hide-small">

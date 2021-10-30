@@ -94,7 +94,8 @@ export default function Navigation() {
 						</button>
 					</form>
 				</div>
-			</nav>
+      </nav>
+      
 		</div>
 	);
 }
